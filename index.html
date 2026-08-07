@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dark Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(39, 39, 42, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(63, 63, 70, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen selection:bg-emerald-500/30">
+
+    <!-- Header -->
+    <header class=" top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- LOGO -->
+            <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
+                <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="zap" class="text-zinc-950 w-5 h-5"></i>
+                </div>
+                <span>NEXUS</span>
+            </div>
+
+            <!-- NAv -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#" class="hover:text-emerald-400 transition-colors">Platform</a>
+                <a href="#" class="hover:text-emerald-400 transition-colors">Solutions</a>
+                <a href="#" class="hover:text-emerald-400 transition-colors">Resources</a>
+                <a href="#" class="hover:text-emerald-400 transition-colors">Pricing</a>
+            </nav>
+
+            <!-- Call to action -->
+            <div class="flex items-center gap-4">
+                <button class="px-5 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-sm transition-all active:scale-95">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 space-y-16">
+        
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <!-- Img -->
+            <div class="lg:col-span-8 overflow-hidden rounded-3xl border border-zinc-800 group">
+                <img 
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
+                    alt="Hero Analytics" 
+                    class="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+            </div>
+            <!-- Content p -->
+            <div class="lg:col-span-4 glass-card p-8 rounded-3xl flex flex-col justify-center">
+                <div class="inline-flex items-center gap-2 text-emerald-400 mb-4 text-sm font-semibold uppercase tracking-widest">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    New Feature
+                </div>
+                <p class="text-zinc-400 leading-relaxed text-lg">
+                    Experience the next generation of data visualization. Our platform transforms complex datasets into actionable insights through an intuitive, dark-optimized interface designed for high-performance teams.
+                </p>
+                <div class="mt-8">
+                    <a href="#" class="inline-flex items-center gap-2 text-zinc-100 hover:text-emerald-400 transition-colors font-medium">
+                        Learn more about insights <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main/Section Area -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Left Img (Section) -->
+            <div class="lg:col-span-4 rounded-3xl overflow-hidden border border-zinc-800 h-full min-h-[500px]">
+                <img 
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" 
+                    alt="Workflow Section" 
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Right Content (Section) -->
+            <div class="lg:col-span-8 flex flex-col gap-8">
+                <div class="glass-card p-10 rounded-3xl flex-1 flex flex-col justify-center">
+                    <!-- h3 -->
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white tracking-tight">
+                        Seamless Integration for <span class="text-emerald-500">Modern Workflows</span>
+                    </h3>
+                    <!-- content p -->
+                    <p class="text-zinc-400 text-lg leading-relaxed max-w-2xl">
+                        Our architecture is built on the principles of speed and reliability. Whether you're scaling a startup or managing an enterprise infrastructure, our tools provide the flexibility needed to stay ahead of the curve. Integrate with your favorite services in minutes and start monitoring your progress in real-time with our advanced telemetry dashboard.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-10">
+                        <div class="border-l-2 border-emerald-500 pl-4">
+                            <div class="text-2xl font-bold">99.9%</div>
+                            <div class="text-sm text-zinc-500">Uptime SLA</div>
+                        </div>
+                        <div class="border-l-2 border-emerald-500 pl-4">
+                            <div class="text-2xl font-bold">24/7</div>
+                            <div class="text-sm text-zinc-500">Expert Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900/50 border-t border-zinc-800 mt-20 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+                <!-- Logo/ img contact info/ p -->
+                <div class="md:col-span-4 space-y-6">
+                    <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
+                        <div class="w-8 h-8 bg-zinc-800 rounded-lg flex items-center justify-center border border-zinc-700">
+                            <i data-lucide="zap" class="text-emerald-500 w-5 h-5"></i>
+                        </div>
+                        <span>NEXUS</span>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            Building the future of digital infrastructure. Join over 10,000 teams scaling their operations globally.
+                        </p>
+                        <div class="flex flex-col gap-2 text-sm text-zinc-500">
+                            <span class="flex items-center gap-2 hover:text-zinc-300 transition-colors cursor-pointer">
+                                <i data-lucide="mail" class="w-4 h-4"></i> hello@nexus-dev.io
+                            </span>
+                            <span class="flex items-center gap-2 hover:text-zinc-300 transition-colors cursor-pointer">
+                                <i data-lucide="phone" class="w-4 h-4"></i> +1 (555) 000-1234
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Site links/ a -->
+                <div class="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-white">Product</h4>
+                        <ul class="space-y-2 text-sm text-zinc-400">
+                            <li><a href="#" class="hover:text-emerald-400 transition-colors">Features</a></li>
+                            <li><a href="#" class="hover:text-emerald-400 transition-colors">Integrations</a></li>
+                            <li><a href="#" class="hover:text-emerald-400 transition-colors">Enterprise</a></li>
+                            <li><a href="#" class="hover:text-emerald-400 transition-colors">Changelog</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-white">Company</h4>
+                        <ul class="space-y-2 text-sm text-zinc-400">
+                            <li><a href="#" class="hover:text-emerald-400 transition-colors">About</a></li>
+                            <li><a href="#" class="hover:text-emerald-400 transition-colors">Careers</a></li>
+                            <li><a href="#" class="hover:text-emerald-400 transition-colors">Blog</a></li>
+                            <li><a href="#" class="hover:text-emerald-400 transition-colors">Privacy</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-white">Social</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 transition-all">
+                                <i data-lucide="twitter" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 transition-all">
+                                <i data-lucide="github" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 transition-all">
+                                <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- copyright -->
+            <div class="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
+                <p>&copy; 2023 Nexus Technologies Inc. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:underline">Terms of Service</a>
+                    <a href="#" class="hover:underline">Cookie Policy</a>
+                    <a href="#" class="hover:underline">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
