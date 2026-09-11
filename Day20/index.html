@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <body>
+    <script>
+      document.cookie =
+        "theme=dark; max-age=31536000; path=/; secure; samesite=lax";
+      let x = 0.5;
+      debugger;
+      const pickyPromise = new Promise((resolve, reject) => {
+        // const randomNumber = Math.floor(Math.random() * 10) / 10;
+        // console.log(randomNumber);
+        if (x == 0.7) {
+          setInterval(() => {
+            resolve("Success! The number is equal to 0.7.");
+          }, 1000);
+        } else {
+          setInterval(() => {
+            reject("Failure! The number is less than or equal to 0.5.");
+          }, 1000);
+        }
+      });
+
+      pickyPromise
+        .then((message) => {
+          console.log("WOOOWOWOWOWOW", message);
+          return "Okay what should I do next1";
+        })
+        .then((message) => {
+          console.log(message);
+        })
+        .catch((error) => {
+          console.error("La mareni Babai!", error);
+        })
+        .finally(() => {
+          console.log("Finally I have moved on!");
+        });
+
+      console.log("I am done with the promise");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        margin: 0;
+        font-size: 150px;
+      }
+
+      #blend {
+        margin: 40px 0 0 80px;
+        font-size: 150px;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: green;
+        /* color: rgba(0, 255, 0, 0.5); */
+        mix-blend-mode: difference;
+        border: 1px solid red;
+      }
+
+      video {
+        position: absolute;
+        top: 0;
+        z-index: -100;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+DE+SAS+Guides&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>HELLO this is H1</h1>
+    <p>hello <span id="blend">world</span></p>
+    <video
+      src="https://cdn.dribbble.com/userupload/10428057/file/original-419647e1b7e853ef4f7579b2a350228d.mp4"
+      autoplay
+      muted
+      loop
+    ></video>
+
+    <!-- <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/3g3uC58lpRE?si=_kfB7OfDS_IjjrSU"
+      title="YouTube video player"
+      frameborder="0"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+        web-share;
+      "
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+     -->
+  </body>
+</html>

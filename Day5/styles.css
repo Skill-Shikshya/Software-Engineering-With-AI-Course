@@ -1,0 +1,114 @@
+      #bigtext {
+        font-size: 100px;
+        text-align: center;
+      }
+
+      .box {
+        position: fixed;
+        top: 0;
+        left: 0;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        color: white;
+        z-index: 100;
+      }
+      #learning {
+        background-color: black;
+        animation: moveBox 4s ease 1s infinite forwards;
+      }
+      #html {
+        background-color: red;
+        animation: moveBox 4s ease 2s infinite forwards;
+      }
+      #css {
+        background-color: blue;
+        animation: moveBox 4s ease 3s infinite forwards;
+      }
+      #js {
+        background-color: green;
+        animation: moveBox 4s ease 4s infinite forwards;
+      }
+
+      @keyframes moveBox {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(calc(100vw - 200px), 0);
+        }
+        50% {
+          transform: translate(calc(100vw - 200px), calc(100vh - 200px));
+        }
+        75% {
+          transform: translate(0, calc(100vh - 200px));
+        }
+      }
+
+      li {
+        position: fixed;
+        top: 40%;
+        left: 36%;
+        list-style: inside;
+        background-color: black;
+        width: 500px;
+        text-align: center;
+        padding: 10px;
+        z-index: 100;
+        border-radius: 10px;
+      }
+
+      ::marker {
+        font-size: 80px;
+        color: white;
+        animation: changeContent 0.5s ease 0s infinite forwards;
+      }
+
+      @keyframes changeContent {
+        100%,
+        0% {
+          content: "Learning";
+          font-family: "Playwrite ID", cursive;
+        }
+        25% {
+          content: "HTML";
+          font-family: "Bitcount Ink", system-ui;
+        }
+        50% {
+          content: "CSS";
+          font-family: "Sekuya", system-ui;
+        }
+        75% {
+          content: "JavaScript";
+          font-family: "Bevan", serif;
+        }
+      }
+
+      #bigtext {
+        animation: updown 0.5s ease 0s infinite forwards;
+      }
+
+      @keyframes updown {
+        from {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-200px);
+          filter: blur(5px);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      audio {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+      }
