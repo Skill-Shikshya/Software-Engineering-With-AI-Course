@@ -1,92 +1,90 @@
 import { useState } from "react";
-import heroImg from "./assets/hero.png";
-import viteLogo from "./assets/vite.svg";
-import reactLogo from "./assets/react.svg";
-import ShowImg from "./showImg.jsx";
-import "./App.css";
+import { useForm } from "react-hook-form";
+import { R } from "./component/controlledFrom";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-// const newObj = { name: "bibek", work: "teaching" };
+// const output = schema.safeParse({
+//   name: "abcde",
+//   age: "15",
+//   status: null,
+//   password: "accd",
+//   confirmPassword: "accd",
+// });
+
+// console.log(output);
+// if (output.success) {
+//   console.log("output", output.data);
+// } else {
+//   console.log("err", output.error.issues);
+// }
+
+const schema = z.object({
+  name: z.string().min(5, "needs to the min 5 char"),
+  age: z.coerce
+    .number()
+    .min(1, "should be greater than 1")
+    .max(100, "should be less than 100"),
+  // status: z.enum(["active", "inactive"]).nullable(),
+  // email: z.email().optional(),
+  // password: z.string().min(3),
+  // confirmPassword: z.string().min(3),
+});
+// .refine((data) => data.password === data.confirmPassword, {
+//   error: "password didn't match",
+// });
 
 function App() {
-  const obj = {
-    name: "Ram",
-    age: 7000,
-  };
-  const [person, setPerson] = useState(obj);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid },
+  } = useForm({
+    resolver: zodResolver(schema),
+    mode: "onBlur",
+  });
 
-  let nePerson = obj;
-  nePerson = { name: "someName" };
-  console.log("new person", nePerson.age);
+  console.log(isValid);
 
-  const updateName = () => {
-    const getName = prompt("Hey what is your name");
-    console.log("");
-    setPerson((prev) => {
-      return { ...prev, name: getName };
-    });
-  };
-
-  const updateAge = () => {
-    const getAge = prompt("Hey what is your age");
-    setPerson((prev) => {
-      return { age: getAge };
-    });
+  console.log(errors);
+  const SubmitData = (data) => {
+    console.log("Form submitted with", data);
   };
 
-  const updateName_Age = () => {
-    const getName = prompt("Hey what is your name");
-    const getAge = prompt("Hey what is your age");
-    setPerson((prev) => {
-      return { name: getName, age: getAge };
-    });
-  };
+  
 
   return (
     <>
-      <section id="center">
-        <p
-          style={{
-            fontSize: "32px",
-            border: "1px solid red",
-            padding: "10px 20px",
-          }}
-        >
-          {person.name || "undefined"}
-        </p>
-        <p
-          style={{
-            fontSize: "32px",
-            border: "1px solid red",
-            padding: "10px 20px",
-          }}
-        >
-          {person.age || "undefined"}
-        </p>
+      <form onSubmit={handleSubmit(SubmitData)}>
+        <div>
+          <label>
+            Name
+            <R />
+          </label>
+          <input type="text" {...register("name")} />
+          {errors?.name ? (
+            <p style={{ color: "red" }}>{errors.name?.message}</p>
+          ) : null}
+        </div>
 
-        <button type="button" className="counter" onClick={updateName}>
-          Update name
-        </button>
-
-        <button type="button" className="counter" onClick={updateAge}>
-          Update age
-        </button>
-
-        <button type="button" className="counter" onClick={updateName_Age}>
-          Update age & age
-        </button>
-        {/* <ShowImg
-          name={newObj.name}
-          heroImg={heroImg}
-          reactLogo={reactLogo}
-          viteLogo={viteLogo}
-        /> */}
-        {/* <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div> */}
-      </section>
+        <div>
+          <label>
+            age
+            <R />
+          </label>
+          <input type="number" {...register("age")} />
+          {errors?.age ? (
+            <p style={{ color: "red" }}>{errors.age?.message}</p>
+          ) : null}
+        </div>
+        <input
+          style={
+            isValid ? { backgroundColor: "green" } : { backgroundColor: "red" }
+          }
+          type="submit"
+        />
+      </form>
     </>
   );
 }

@@ -4,10 +4,10 @@
 // import { obj } from "./newone.js";
 import React from "react";
 
-function ShowImg({ name, heroImg, reactLogo, viteLogo }) {
+function ShowImg({ name = "GUEST", heroImg, reactLogo, viteLogo }) {
   return (
     <div className="hero">
-      <h1>helle {name == "bibek" ? name : "GUEST"}</h1>
+      <h1>helle {name}</h1>
       <img src={heroImg} className="base" width="170" height="179" alt="" />
       <img src={reactLogo} className="framework" alt="React logo" />
       <img src={viteLogo} className="vite" alt="Vite logo" />
@@ -17,13 +17,13 @@ function ShowImg({ name, heroImg, reactLogo, viteLogo }) {
 
 export default ShowImg;
 
-// function Button() {
-//   console.log("hello this is btn", obj.name);
-//   return React.createElement(
-//     "h1",
-//     { id: "btn", className: "newH1" },
-//     `hello ${obj.name}`,
-//   );
-// }
+function Button() {
+  console.log("hello this is btn", obj.name);
+  return React.createElement(
+    "h1",
+    { id: "btn", className: "newH1" },
+    `hello ${obj.name}`,
+  );
+}
 
-// export const obj2 = { a: ShowImg, b: Button };
+export const obj2 = { a: ShowImg, b: Button };
