@@ -1,0 +1,19 @@
+{
+  "name": "first-day",
+  "version": "1.0.0",
+  "description": "making api endpoints in vanilla node",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "author": "bibek",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5"
+  }
+}

@@ -1,92 +1,62 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { R } from "./component/controlledFrom";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-// const output = schema.safeParse({
-//   name: "abcde",
-//   age: "15",
-//   status: null,
-//   password: "accd",
-//   confirmPassword: "accd",
-// });
-
-// console.log(output);
-// if (output.success) {
-//   console.log("output", output.data);
-// } else {
-//   console.log("err", output.error.issues);
-// }
+import { useEffect } from "react";
 
 const schema = z.object({
-  name: z.string().min(5, "needs to the min 5 char"),
-  age: z.coerce
-    .number()
-    .min(1, "should be greater than 1")
-    .max(100, "should be less than 100"),
-  // status: z.enum(["active", "inactive"]).nullable(),
-  // email: z.email().optional(),
-  // password: z.string().min(3),
-  // confirmPassword: z.string().min(3),
+  name: z.string().min(5, "Min 5 characters"),
+  age: z.coerce.number().min(1).max(100),
 });
-// .refine((data) => data.password === data.confirmPassword, {
-//   error: "password didn't match",
-// });
 
-function App() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isValid },
-  } = useForm({
+export default function App() {
+  const { register, handleSubmit, reset } = useForm({
     resolver: zodResolver(schema),
-    mode: "onBlur",
+    defaultValues: { name: "jjojoj", age: "21" },
   });
 
-  console.log(isValid);
-
-  console.log(errors);
-  const SubmitData = (data) => {
-    console.log("Form submitted with", data);
+  const onSubmit = (data) => {
+    console.log("Submitted", data);
+    // localStorage.setItem("formData", JSON.stringify(data));
+    // reset();
   };
 
-  
+  // useEffect(() => {
+  //   const JSONdata = localStorage.getItem("formData");
+  //   const data = JSON.parse(JSONdata);
+  //   reset({
+  //     name: data.name,
+  //     age: data.age,
+  //   });
+  // }, []);
 
   return (
-    <>
-      <form onSubmit={handleSubmit(SubmitData)}>
+    <div style={{ padding: 20 }}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label>
-            Name
-            <R />
-          </label>
-          <input type="text" {...register("name")} />
-          {errors?.name ? (
-            <p style={{ color: "red" }}>{errors.name?.message}</p>
-          ) : null}
+          <label>Name: </label>
+          <input
+            type="text"
+            name="name"
+            style={{ color: "white", backgroundColor: "#2a2a2a" }}
+            {...register("name")}
+          />
         </div>
-
+        <br />
         <div>
-          <label>
-            age
-            <R />
-          </label>
-          <input type="number" {...register("age")} />
-          {errors?.age ? (
-            <p style={{ color: "red" }}>{errors.age?.message}</p>
-          ) : null}
+          <label>Age: </label>
+          <input
+            type="number"
+            name="age"
+            style={{ color: "white", backgroundColor: "#2a2a2a" }}
+            {...register("age")}
+          />
         </div>
-        <input
-          style={
-            isValid ? { backgroundColor: "green" } : { backgroundColor: "red" }
-          }
-          type="submit"
-        />
+        <br />
+        <button type="submit">Submit</button>
+        <button onClick={() => reset({ name: "bibek", age: 26 })}>
+          Reset Form
+        </button>
       </form>
-    </>
+    </div>
   );
 }
-
-export default App;

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+    <h2>Add New Book (books.json)</h2>
+    <form id="bookForm">
+        <div>
+            <label for="book_id">ID:</label><br>
+            <input type="text" id="book_id" name="id" required>
+        </div>
+        <br>
+        <div>
+            <label for="book_name">Book Name:</label><br>
+            <input type="text" id="book_name" name="book_name" required>
+        </div>
+        <br>
+        <div>
+            <label for="author_name">Author Name:</label><br>
+            <input type="text" id="author_name" name="author_name" required>
+        </div>
+        <br>
+        <div>
+            <label for="author_id">Author ID:</label><br>
+            <input type="text" id="author_id" name="author_id" required>
+        </div>
+        <br>
+        <div>
+            <label for="price">Price:</label><br>
+            <input type="number" id="price" name="price" step="0.01" required>
+        </div>
+        <br>
+        <div>
+            <label for="page">Page Count:</label><br>
+            <input type="number" id="page" name="page" required>
+        </div>
+        <br>
+        <button type="submit" onClick="POSTBook">Submit Book</button>
+    </form>
+ <script src="./script.js"></script>
+</body>
+</html>
